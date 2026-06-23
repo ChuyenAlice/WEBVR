@@ -8,8 +8,8 @@
   'use strict';
 
   /* ----------------------------- Cấu hình ----------------------------- */
-  var OWNER = 'Sagitoaz';
-  var REPO = 'DPT';
+  var OWNER = 'ChuyenAlice';
+  var REPO = 'WEBVR';
   var BRANCH = 'main';
   var DATA_PATH = 'assets/data/exhibits.json';
   var SETTINGS_PATH = 'assets/data/settings.json';
