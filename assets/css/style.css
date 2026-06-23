@@ -1,0 +1,686 @@
+/* =====================================================================
+   WebDPT – Bảo tàng số Khoa Đa phương tiện
+   Web thật (HTML/CSS), responsive, các section tách bạch (scroll-snap).
+   ===================================================================== */
+:root{
+  --orange:  #FFAA01;
+  --orange-d:#F09200;
+  --dark:    #382828;
+  --red:     #DD421D;
+  --blue:    #004ED8;
+  --green:   #02AF7F;
+  --text:    #2b2b2b;
+  --maxw:    1180px;
+  /* Font hiển thị cho các tiêu đề lớn (đúng thiết kế Figma). Dấu thanh kiểu thư pháp
+     (nét cong trên "Ố"...) là đặc trưng của Phudu — không phải chi tiết vẽ thêm. */
+  --font-display: "Phudu", "Be Vietnam Pro", system-ui, sans-serif;
+  /* Font UI cho tiêu đề phòng & nút (thiết kế dùng Helvetica; web fallback Arial). */
+  --font-ui: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* ---------------------------------------------------------------
+     ⚙️ CẤU HÌNH KHỐI "PHÒNG" – chỉnh số ở đây, không cần sửa rule bên dưới.
+     --------------------------------------------------------------- */
+  --window-maxw:          1240px;                 /* bề rộng tối đa thẻ cửa sổ */
+  --room-gap:             clamp(28px,4vw,58px);   /* khoảng cách 2 cột: card | nội dung */
+  --room-col-gap:         clamp(20px,2.4vw,30px); /* khoảng cách dọc trong cột nội dung */
+  --room-card-w:          460px;                  /* bề rộng card khi ở bên TRÁI (Phòng 1,3) */
+  --room-card-w-portrait: 360px;                  /* bề rộng card dọc bên PHẢI (Phòng 2) */
+  --card-portrait-ratio:  36 / 46;                /* tỉ lệ ngang/dọc của card dọc (Phòng 2) */
+  --card-radius:          16px;
+  --thumb-h:              clamp(90px,8.8vw,118px);/* chiều cao thumbnail kiểu --row */
+  --thumb-gap:            clamp(12px,1.4vw,22px);
+  --thumb-radius:         16px;
+}
+*{ box-sizing:border-box; }
+html,body{ margin:0; height:100%; }
+body{
+  font-family:"Be Vietnam Pro", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color:var(--text); background:#fff; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+
+/* --------- Deck: cuộn dọc + snap (mỗi section là 1 "slide" tách biệt) -------- */
+.deck{
+  height:100vh;
+  overflow-y:auto;
+  scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
+  scroll-padding-top:0;
+}
+.panel{
+  scroll-snap-align:start;
+  position:relative;
+}
+.panel--full{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.container{ width:100%; max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+
+/* ----------------------------- Buttons ----------------------------- */
+.btn{ font-family:inherit; font-weight:700; border:none; cursor:pointer; border-radius:999px; letter-spacing:.5px; }
+.btn--primary{
+  background:var(--orange); color:#fff; font-size:18px; padding:15px 46px;
+  box-shadow:0 8px 22px rgba(255,170,1,.35);
+  transition:transform .15s, box-shadow .15s, background .15s;
+}
+.btn--primary:hover{ background:var(--orange-d); transform:translateY(-2px); box-shadow:0 12px 28px rgba(255,170,1,.45); }
+.btn--lg{ font-size:20px; padding:18px 52px; }
+.btn--pill{
+  background:#fff; color:var(--orange); font-family:var(--font-ui); font-weight:700;
+  font-size:clamp(16px,1.55vw,22px); padding:14px 50px;
+  box-shadow:0 8px 20px rgba(0,0,0,.18); transition:transform .15s, box-shadow .15s;
+}
+.btn--pill:hover{ transform:translateY(-2px); box-shadow:0 12px 26px rgba(0,0,0,.26); }
+
+/* ------------------------------ Hero ------------------------------- */
+/* Hero = đúng 1 trang (100vh). Cụm content canh giữa nhưng được đẩy lên trên
+   nhờ padding-bottom = chiều cao dải sóng (~12vw) → nút "KHÁM PHÁ NGAY" luôn
+   nằm PHÍA TRÊN dải sóng. padding-bottom dùng vw nên tự co giãn (responsive). */
+.hero{ text-align:center; overflow:hidden; height:100vh; justify-content:center; padding:60px 0 12vw; }
+.hero__inner{ position:relative; z-index:2; }
+.hero__logo-wrap{
+  position:relative; width:clamp(230px,22vw,300px); height:clamp(130px,12.5vw,150px);
+  margin:0 auto 10px; overflow:hidden;
+}
+.hero__logo{
+  position:absolute; left:50%; top:50%; width:232%; max-width:none;
+  transform:translate(-50%,-50%);
+}
+.hero__eyebrow{
+  color:var(--orange); font-weight:600; font-size:clamp(20px,2.4vw,34px);
+  letter-spacing:.3em; margin:6px 0 22px; text-transform:uppercase;
+}
+.hero__title{
+  font-family:var(--font-display); font-size:clamp(42px,5.4vw,73px); font-weight:700;
+  color:var(--dark); margin:0 0 14px; line-height:1.08;
+}
+.hero__band{ margin:0 0 28px; }
+.hero__band span{
+  display:inline-block; background:var(--dark); color:#fff; font-family:var(--font-display);
+  font-size:clamp(28px,5.4vw,73px); font-weight:700; line-height:1.12;
+  padding:2px 36px 12px; border-radius:12px;
+}
+.hero__subtitle{ font-size:clamp(15px,1.4vw,18px); color:var(--dark); margin:0 auto 36px; max-width:680px; }
+.hero__waves{ position:absolute; left:0; bottom:0; width:100%; z-index:1; pointer-events:none; }
+
+/* --------------------- Split titles (dark band) -------------------- */
+.split-title{
+  font-size:clamp(28px,3.6vw,46px); font-weight:800; text-align:center; margin:0 0 36px;
+  line-height:1.2; color:var(--dark);
+  display:flex; flex-wrap:wrap; gap:12px; justify-content:center; align-items:center;
+}
+.split-title--mt{ margin-top:56px; }
+.split-title__dark{ background:var(--dark); color:#fff; padding:4px 18px 8px; border-radius:10px; }
+
+/* ------------------------------ Intro ------------------------------ */
+/* Intro & trang "CẤU TRÚC" là 2 trang riêng, mỗi trang cao 100vh (panel--full)
+   và canh giữa nội dung theo chiều dọc. Padding đối xứng để giữ canh giữa chuẩn. */
+.intro{ padding:clamp(40px,7vh,80px) 0; }
+.intro__text{ max-width:920px; margin:0 auto; text-align:justify; }
+.intro__text p{ margin:0 0 18px; font-size:clamp(15px,1.15vw,17px); color:#3a3a3a; }
+
+/* ============================== ROOMS ==============================
+   ┌─ CÔNG THỨC DỰNG 1 PHÒNG (xem Phòng 1 & 2 trong index.html làm mẫu) ─┐
+   <section class="panel room room--{red|blue|green}">
+     <div class="window">
+       <div class="window__bar"><span class="dots"><i></i><i></i><i></i></span>
+         <h3 class="window__title">PHÒNG TRƯNG BÀY 0x: …</h3></div>
+       <div class="window__body">
+         <div class="room__grid [room__grid--reverse]">
+           <div class="room__media [room__media--portrait]"><img …></div>  ← CARD ảnh
+           <div class="room__col">                                         ← CỘT nội dung
+             <div class="room__text"><p>…</p><p>…</p></div>
+             <div class="room__thumbs room__thumbs--{grid|row}"><img>×4</div>
+             <div class="room__cta"><button class="btn btn--pill js-scroll-bottom">KHÁM PHÁ NGAY</button></div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </section>
+   • Thứ tự HTML luôn: .room__media TRƯỚC, .room__col SAU (kể cả khi --reverse).
+   • Card TRÁI (Phòng 1,3): KHÔNG dùng --reverse.
+   • Card PHẢI (Phòng 2): thêm --reverse (CSS tự đảo card sang phải). Ảnh dọc thì thêm --media--portrait.
+   • Thumbnail: --grid = 4 ô vuông đều | --row = giữ tỉ lệ gốc, cùng chiều cao.
+   • Mọi kích thước chỉnh ở biến --room-* / --thumb-* / --card-* trong :root.
+   =================================================================== */
+.room{ padding:30px 0; margin-top:64px; }
+.room--red{   background:var(--red); }
+.room--blue{  background:var(--blue); }
+.room--green{ background:var(--green); }
+
+/* ----- TRANG TRƯNG BÀY: mỗi phòng là 1 trang 100vh, khối màu full-bleed canh giữa
+   theo chiều dọc (dải trắng trên/dưới ngăn cách). "safe center" tránh cắt mép khi màn
+   thấp. Riêng TRANG 3 còn có heading "CẤU TRÚC" + khoảng trắng phía trên khối đỏ. ----- */
+.room-stage{ justify-content:safe center; padding:clamp(16px,3vh,40px) 0; }
+.room-stage .split-title{ margin:0; }
+.room-stage .room{ margin-top:0; }                              /* khối màu canh giữa tuyệt đối */
+.room-stage__head + .room{ margin-top:clamp(32px,5vh,60px); }   /* chỉ trang 3: chừa khoảng trắng dưới heading */
+
+/* ----- Khung cửa sổ: title-bar (mac dots) trắng + thân cam ----- */
+.window{ width:100%; max-width:var(--window-maxw); margin:0 auto; border-radius:22px; overflow:hidden; box-shadow:0 26px 60px rgba(0,0,0,.28); }
+.window__bar{ background:#fff; display:flex; align-items:center; gap:18px; padding:14px 26px; }
+.dots{ display:inline-flex; gap:8px; flex:0 0 auto; }
+.dots i{ width:14px; height:14px; border-radius:50%; display:block; }
+.dots i:nth-child(1){ background:#ED4C4C; }
+.dots i:nth-child(2){ background:#F5B73D; }
+.dots i:nth-child(3){ background:#3BC04A; }
+.window__title{ margin:0; color:var(--orange); font-family:var(--font-ui); font-weight:700; font-size:clamp(15px,1.9vw,25px); letter-spacing:.2px; }
+.window__body{ background:var(--orange); padding:34px clamp(20px,3.4vw,48px) 40px; }
+
+/* ----- Lưới 2 cột: CARD ảnh | CỘT nội dung ----- */
+.room__grid{ display:grid; gap:var(--room-gap); align-items:stretch; grid-template-columns:minmax(0,var(--room-card-w)) 1fr; }
+.room__grid--reverse{ grid-template-columns:1fr minmax(0,var(--room-card-w-portrait)); }
+.room__grid--reverse .room__media{ order:2; }   /* đảo card sang phải (HTML vẫn để media trước) */
+.room__grid--portrait-left{ grid-template-columns:minmax(0,var(--room-card-w-portrait)) 1fr; }  /* card dọc bên TRÁI (Phòng 3) */
+
+/* ----- Card ảnh ----- */
+.room__media img{ width:100%; display:block; border-radius:var(--card-radius); }
+/* Card dọc: ảnh landscape gốc cắt cover, canh giữa */
+.room__media--portrait img{ aspect-ratio:var(--card-portrait-ratio); height:auto; object-fit:cover; object-position:50% 50%; }
+
+/* ----- Cột nội dung: text → thumbnail → nút (nút canh đáy cột) ----- */
+.room__col{ display:flex; flex-direction:column; gap:var(--room-col-gap); }
+.room__text p{ margin:0 0 16px; color:#fff; font-size:clamp(14px,1.05vw,16px); text-align:justify; }
+.room__text p:last-child{ margin-bottom:0; }
+.room__cta{ text-align:center; }
+.room__col .room__cta{ margin-top:auto; }
+
+/* ----- Thumbnail: 3 kiểu ----- */
+.room__thumbs{ margin:0; }
+/* a) --grid: 4 ô vuông đều, dàn lấp ngang cột (Phòng 1) */
+.room__thumbs--grid{ display:flex; gap:var(--thumb-gap); }
+.room__thumbs--grid img{ flex:1 1 0; width:0; min-width:0; height:auto; border-radius:var(--thumb-radius); }
+/* b) --row: giữ tỉ lệ gốc, cùng chiều cao (Phòng 2 & 3) */
+.room__thumbs--row{ display:flex; gap:var(--thumb-gap); align-items:flex-start; flex-wrap:wrap; }
+.room__thumbs--row img{ height:var(--thumb-h); width:auto; border-radius:var(--thumb-radius); flex:0 0 auto; }
+
+/* ------------------------------ Guide ------------------------------ */
+/* Trang cuối = Hướng dẫn + Footer trong 1 panel cao 100vh. Footer ghim đáy
+   (margin-top:auto) → cuộn tới snap sạch, footer hiện đủ ở đáy (không dừng nửa chừng).
+   Cụm Hướng dẫn giãn đầy khoảng trống phía trên footer và CĂN GIỮA theo chiều dọc
+   ("safe center" tránh cắt mép trên khi màn thấp). */
+.guide-page{ min-height:100vh; display:flex; flex-direction:column; }
+.guide{ flex:1; display:flex; flex-direction:column; justify-content:safe center; padding:clamp(24px,5vh,60px) 0; }
+.guide__lead{ text-align:center; max-width:1000px; margin:0 auto 44px; font-size:clamp(15px,1.15vw,17px); }
+.guide__steps{ list-style:none; margin:0 auto 50px; padding:0; max-width:980px; }
+.guide__step{ display:flex; align-items:center; gap:34px; margin:0 0 30px; }
+.guide__icon{ width:92px; flex:0 0 92px; object-fit:contain; }
+.guide__step p{ margin:0; font-size:clamp(14px,1.1vw,16px); text-align:justify; }
+.guide__cta{ text-align:center; }
+
+/* ------------------------------ Footer -----------------------------
+   Bố cục bám Figma: LOGO + cột 1 dồn về trái, cột 2 đẩy sang phải.
+   Cột bắt đầu tại ~18% (cột 1) và ~65% (cột 2) bề rộng nội dung — khớp
+   toạ độ Figma (logo x≈115, cột1 x≈327, cột2 x≈858 trên khung 1366). */
+.footer{ background:var(--dark); color:#fff; padding:22px 0; min-height:auto; margin-top:auto; }
+.footer__inner{ display:grid; grid-template-columns:19% 48% 33%; gap:0; align-items:center; }
+.footer__logo{ width:120px; }
+.footer__col p{ margin:0; font-size:12px; line-height:1.4; }
+.footer__col a{ text-decoration:none; word-break:break-all; }
+.footer__col a:hover{ text-decoration:underline; }
+
+/* =====================================================================
+   CHỈ TỐI ƯU CHO DESKTOP MÀN NGANG (theo yêu cầu – không làm responsive dọc).
+   Màn rất lớn: nới nhẹ khổ nội dung cho cân đối.
+   ===================================================================== */
+@media (min-width:1700px){
+  :root{ --maxw:1320px; --window-maxw:1340px; }
+}
+
+/* =====================================================================
+   MUSEUM 3D OVERLAY
+   ===================================================================== */
+.museum{ position:fixed; inset:0; z-index:1000; background:#0d0f14; display:none; }
+.museum.is-open{ display:block; }
+.museum__canvas{ position:absolute; inset:0; }
+.museum__canvas canvas{ display:block; width:100%; height:100%; }
+.museum__topbar{
+  position:absolute; top:0; left:0; right:0; z-index:5;
+  display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 18px;
+  background:linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,0)); color:#fff; pointer-events:none;
+}
+.museum__title{ font-weight:700; letter-spacing:.5px; font-size:15px; }
+.museum__actions{ display:flex; gap:10px; align-items:center; pointer-events:auto; }
+.museum__exit{
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.3); color:#fff;
+  border-radius:999px; padding:8px 18px; font-family:inherit; font-weight:600; cursor:pointer;
+}
+.museum__exit:hover{ background:rgba(255,255,255,.22); }
+.museum__sound{
+  width:40px; height:40px; flex:none; display:inline-flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.3); color:#fff;
+  border-radius:50%; font-size:17px; line-height:1; padding:0; cursor:pointer;
+  transition:background .15s, opacity .15s, border-color .15s;
+}
+.museum__sound:hover{ background:rgba(255,255,255,.22); }
+.museum__sound.is-muted{ opacity:.65; border-color:rgba(255,255,255,.16); }
+.museum__hint{
+  position:absolute; left:50%; bottom:22px; transform:translateX(-50%); z-index:5;
+  display:flex; flex-wrap:wrap; gap:6px 18px; justify-content:center; max-width:92vw; padding:12px 20px;
+  background:rgba(13,15,20,.72); border:1px solid rgba(255,255,255,.14); border-radius:14px;
+  color:#e9e9e9; font-size:13px; backdrop-filter:blur(6px); transition:opacity .4s ease;
+}
+.museum__hint b{ color:var(--orange); }
+.museum__hint.is-faded{ opacity:.18; }
+.museum__loading{
+  position:absolute; inset:0; z-index:6; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:18px; background:#0d0f14; color:#fff;
+}
+.spinner{ width:46px; height:46px; border:4px solid rgba(255,255,255,.2); border-top-color:var(--orange); border-radius:50%; }
+.museum.is-open .spinner{ animation:spin 1s linear infinite; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+.product-panel{
+  position:absolute; top:50%; right:24px; transform:translateY(-50%); z-index:7;
+  width:min(440px,92vw); max-height:calc(100vh - 80px); overflow-y:auto;
+  background:#fff; border-radius:18px; padding:22px 24px 28px;
+  box-shadow:0 20px 56px rgba(0,0,0,.48); display:none;
+  scrollbar-width:thin; scrollbar-color:rgba(255,170,1,.5) transparent;
+}
+.product-panel::-webkit-scrollbar{ width:5px; }
+.product-panel::-webkit-scrollbar-track{ background:transparent; }
+.product-panel::-webkit-scrollbar-thumb{ background:rgba(255,170,1,.55); border-radius:99px; }
+.product-panel.is-open{ display:block; }
+
+/* --- Sections trong panel (mỗi block thông tin) --- */
+.pp-section{ margin-top:14px; padding-top:12px; border-top:1px solid #f0eee9; }
+.pp-section:first-of-type{ margin-top:8px; padding-top:8px; border-top:none; }
+.pp-label{
+  display:block; font-size:10.5px; font-weight:700; letter-spacing:.08em;
+  text-transform:uppercase; color:#aaa; margin-bottom:4px;
+}
+
+.product-panel h3{ margin:0; color:var(--dark); font-size:20px; line-height:1.3; }
+.product-panel p{ margin:0; font-size:14px; color:#444; line-height:1.65; }
+/* Giữ nguyên xuống dòng trong mô tả (khớp với nội dung nhập ở admin) */
+#product-desc{ white-space:pre-wrap; word-break:break-word; }
+.product-panel__close{
+  position:absolute; top:12px; right:14px; border:none; background:none;
+  font-size:18px; cursor:pointer; color:#aaa; transition:color .15s;
+}
+.product-panel__close:hover{ color:var(--dark); }
+
+/* --- Nút toggle ngôn ngữ VN/EN --- */
+.pp-lang-toggle{
+  display:inline-flex; align-items:center; gap:0;
+  background:#f0eee9; border-radius:999px; padding:3px;
+  margin-bottom:10px;
+}
+.pp-lang-btn{
+  font-family:inherit; font-size:11.5px; font-weight:700; letter-spacing:.06em;
+  border:none; background:none; cursor:pointer; color:#888;
+  padding:5px 14px; border-radius:999px;
+  transition:background .2s, color .2s, box-shadow .2s;
+}
+.pp-lang-btn.active{
+  background:var(--orange); color:#fff;
+  box-shadow:0 2px 8px rgba(255,170,1,.4);
+}
+.product-panel__media{ margin:0 0 14px; border-radius:10px; overflow:hidden; background:#f1f2f5; }
+.product-panel__media img,
+.product-panel__media video{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+}
+.product-panel__media iframe{ display:block; width:100%; aspect-ratio:16/9; border:0; }
+.product-panel__link{
+  display:inline-block; margin-top:14px; padding:9px 16px; border-radius:999px;
+  background:var(--orange); color:var(--dark); font-family:var(--font-ui); font-weight:700;
+  font-size:13px; text-decoration:none; transition:background .15s;
+}
+.product-panel__link:hover{ background:var(--orange-d); }
+
+/* =====================================================================
+   ANIMATIONS – hiệu ứng chuyển trang & vi tương tác
+   ──────────────────────────────────────────────────────────────────
+   Nguyên tắc: KHÔNG đổi thiết kế. Mọi hiệu ứng chỉ dùng transform/opacity
+   (không ảnh hưởng layout) và trạng thái cuối luôn = bố cục gốc
+   (transform:none; opacity:1). Chuyển động nền (ambient) tôn trọng
+   prefers-reduced-motion.
+   ===================================================================== */
+
+/* --- 1) Scroll reveal: nội dung mỗi "trang" xuất hiện khi cuộn tới --- */
+/* Chỉ bật khi JS đã sẵn sàng (.anim-ready) → nếu tắt JS / reduced-motion
+   thì nội dung hiển thị bình thường, không bao giờ bị ẩn. */
+.anim-ready .reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .7s cubic-bezier(.22,.61,.36,1),
+             transform .7s cubic-bezier(.22,.61,.36,1);
+  transition-delay:var(--reveal-delay, 0s);
+  will-change:opacity, transform;
+}
+.anim-ready .reveal.is-visible{ opacity:1; transform:none; }
+
+/* --- 2) Thanh tiến trình cuộn (mảnh, màu thương hiệu) ---
+   Nằm DƯỚI overlay bảo tàng (z<1000) nên tự ẩn khi mở không gian 3D. */
+.scroll-progress{
+  position:fixed; top:0; left:0; height:3px; width:0;
+  background:linear-gradient(90deg, var(--orange), var(--orange-d));
+  box-shadow:0 0 10px rgba(255,170,1,.55);
+  z-index:900; pointer-events:none;
+  transition:width .12s ease-out;
+}
+
+/* --- 3) Hover zoom nhẹ cho ảnh (thêm chiều sâu, KHÔNG đổi bố cục) --- */
+.room__media{ overflow:hidden; border-radius:var(--card-radius); }
+.room__media img,
+.room__thumbs img{ transition:transform .45s cubic-bezier(.22,.61,.36,1); }
+.room__media img:hover{ transform:scale(1.04); }
+.room__thumbs img:hover{ transform:scale(1.06); }
+
+/* --- 4) Mở overlay Bảo tàng 3D: fade mượt thay vì hiện đột ngột --- */
+.museum.is-open{ animation:museumIn .35s ease both; }
+@keyframes museumIn{ from{ opacity:0; } to{ opacity:1; } }
+
+/* --- 5) Chuyển động nền (ambient) – chỉ khi người dùng không tắt motion --- */
+@media (prefers-reduced-motion: no-preference){
+  /* Dải sóng hero "thở" nhẹ. Scale từ mép đáy → không hở nền trên/dưới. */
+  .hero__waves{ transform-origin:50% 100%; animation:waveFloat 8s ease-in-out infinite; }
+  @keyframes waveFloat{
+    0%,100%{ transform:scale(1); }
+    50%{ transform:scale(1.025); }
+  }
+  /* Nút CTA chính khẽ "nhịp" để mời gọi tương tác (dừng khi hover). */
+  .hero .btn--primary{ animation:ctaPulse 2.6s ease-in-out infinite; }
+  .hero .btn--primary:hover{ animation:none; }
+  @keyframes ctaPulse{
+    0%,100%{ box-shadow:0 8px 22px rgba(255,170,1,.35); }
+    50%{ box-shadow:0 10px 30px rgba(255,170,1,.6); }
+  }
+}
+
+/* Tôn trọng tuyệt đối lựa chọn giảm chuyển động của người dùng. */
+@media (prefers-reduced-motion: reduce){
+  .anim-ready .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
+  .museum.is-open{ animation:none; }
+}
+
+/* =========================== EXPIRED GATE ========================== */
+.expired-screen{
+  position:fixed; inset:0; z-index:99999; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center; padding:24px;
+  background:var(--dark); color:#fff; font-family:"Be Vietnam Pro", sans-serif;
+}
+.expired-screen h1{ font-size:40px; margin:0 0 12px; }
+.expired-screen p{ font-size:17px; opacity:.85; max-width:520px; }
+
+/* =====================================================================
+   RESPONSIVE – Tablet ≤ 900px
+   ===================================================================== */
+@media (max-width:900px){
+  /* Biến root thu nhỏ */
+  :root{
+    --room-gap:         clamp(18px,3vw,28px);
+    --room-col-gap:     16px;
+    --thumb-h:          clamp(72px,10vw,100px);
+    --thumb-gap:        10px;
+  }
+
+  .container{ padding:0 20px; }
+
+  /* Hero */
+  .hero{ padding:50px 0 14vw; }
+  .hero__eyebrow{ letter-spacing:.18em; font-size:clamp(16px,2.2vw,26px); }
+  .hero__title{ font-size:clamp(36px,6vw,62px); }
+  .hero__band span{ font-size:clamp(24px,5vw,52px); padding:2px 22px 10px; }
+  .hero__subtitle{ font-size:clamp(14px,1.5vw,17px); max-width:580px; }
+  .btn--primary{ font-size:16px; padding:13px 38px; }
+
+  /* Intro: bỏ justify ở tablet nhỏ hơn */
+  .intro__text{ text-align:left; }
+  .intro__text p{ font-size:clamp(14px,1.4vw,16px); }
+
+  /* Room windows */
+  .window__body{ padding:24px clamp(14px,2.5vw,32px) 28px; }
+  .window__title{ font-size:clamp(13px,1.7vw,20px); }
+
+  /* Room grid: 2 cột nhưng thu nhỏ card */
+  .room__grid{ grid-template-columns:minmax(0,340px) 1fr; }
+  .room__grid--reverse{ grid-template-columns:1fr minmax(0,280px); }
+  .room__grid--portrait-left{ grid-template-columns:minmax(0,280px) 1fr; }
+
+  /* Text trong room */
+  .room__text p{ font-size:clamp(13px,1.2vw,15px); text-align:left; }
+
+  /* Thumbnail row: không wrap */
+  .room__thumbs--row{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .room__thumbs--row img{ height:var(--thumb-h); flex-shrink:0; }
+
+  /* Button pill */
+  .btn--pill{ font-size:clamp(14px,1.8vw,18px); padding:12px 36px; }
+
+  /* Guide */
+  .guide__step{ gap:22px; }
+  .guide__icon{ width:72px; flex:0 0 72px; }
+  .guide__step p{ font-size:clamp(13px,1.2vw,15px); text-align:left; }
+
+  /* Footer */
+  .footer__inner{ grid-template-columns:auto 1fr 1fr; gap:16px; align-items:start; }
+  .footer__logo{ width:90px; }
+  .footer__col p{ font-size:11px; }
+
+  /* Product panel 3D */
+  .product-panel{
+    width:min(380px,88vw);
+    padding:18px 18px 22px;
+  }
+}
+
+/* =====================================================================
+   RESPONSIVE – Mobile ≤ 600px
+   Nguyên tắc: mỗi panel = 1 màn (100svh), scroll snap, KHÔNG cuộn nội bộ.
+   Nội dung được thu nhỏ đủ để vừa vặn trong màn hình.
+   ===================================================================== */
+@media (max-width:600px){
+  :root{
+    --room-gap:     10px;
+    --room-col-gap: 8px;
+    --thumb-h:      64px;
+    --thumb-gap:    6px;
+    --thumb-radius: 8px;
+    --card-radius:  9px;
+  }
+
+  .container{ padding:0 10px; }
+
+  /* ── Scroll snap: BẬT, mỗi panel = 1 màn, KHÔNG cuộn nội bộ ── */
+  .deck{
+    height:100svh;
+    overflow-y:scroll;
+    scroll-snap-type:y mandatory;
+    scroll-behavior:smooth;
+  }
+  .panel{
+    scroll-snap-align:start;
+    height:100svh;
+    overflow:hidden;
+  }
+
+  /* ── Hero ── */
+  .panel--full.hero{
+    height:100svh; min-height:100svh;
+    padding:36px 0 14vw;
+    display:flex; flex-direction:column; justify-content:center;
+    overflow:visible;
+  }
+  .hero__logo-wrap{ width:clamp(130px,42vw,185px); height:clamp(72px,23vw,100px); }
+  .hero__eyebrow{ font-size:clamp(10px,3vw,14px); letter-spacing:.08em; margin-bottom:7px; }
+  .hero__title{ font-size:clamp(24px,7.5vw,38px); margin-bottom:6px; }
+  .hero__band span{ font-size:clamp(14px,5.4vw,28px); padding:2px 10px 5px; border-radius:7px; }
+  .hero__subtitle{ font-size:12px; max-width:100%; margin-bottom:18px; }
+  .btn--primary{ font-size:13.5px; padding:10px 26px; }
+
+  /* ── Intro: panel = 100svh, KHÔNG cuộn ── */
+  .panel--full.intro{
+    height:100svh; min-height:100svh;
+    padding:0; overflow:hidden;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .intro > .container{
+    overflow:hidden;
+    padding-top:20px;
+    padding-bottom:20px;
+  }
+  .intro__text{ text-align:left; }
+  .intro__text p{ font-size:12px; margin-bottom:9px; line-height:1.45; }
+
+  /* ── Split title: NHỎ HƠN ── */
+  .split-title{ font-size:clamp(14px,4.5vw,19px); gap:4px; margin-bottom:10px; }
+  .split-title__dark{ padding:2px 8px 4px; border-radius:6px; }
+
+  /* ── Room stage: 100svh, căn GIỮA dọc, KHÔNG cuộn ── */
+  .room-stage{
+    height:100svh; min-height:100svh;
+    overflow:hidden;
+    display:flex; flex-direction:column;
+    justify-content:safe center;   /* căn giữa dọc */
+    align-items:center;
+    padding:8px 0;
+    gap:6px;
+  }
+  /* Phủ màu của từng phòng lên toàn bộ màn hình mobile.
+     Khi khối cửa sổ co thấp hơn 100svh, phần dư không còn lộ nền trắng. */
+  .room-stage--red{ background:var(--red); }
+  .room-stage--blue{ background:var(--blue); }
+  .room-stage--green{ background:var(--green); }
+  .room-stage__head{ padding:0 10px; flex-shrink:0; width:100%; }
+  .room-stage .split-title{ margin:0; }
+
+  /* Room: không còn giãn (để toàn bộ khối được căn giữa) */
+  .room{ padding:0; margin-top:0; flex:0 1 auto; width:100%; display:flex; flex-direction:column; min-height:0; }
+
+  /* Window: tự co theo nội dung, có max-height để không vượt màn */
+  .window{
+    border-radius:10px;          /* bo đầy dưới vì không còn đủ 1 trang */
+    flex:0 1 auto;
+    width:calc(100% - 16px);
+    max-height:calc(100svh - 70px);  /* không chạm mép trên/dưới */
+    display:flex; flex-direction:column;
+    overflow:hidden;
+  }
+  .window__bar{
+    padding:7px 10px; gap:7px;
+    flex-shrink:0;
+  }
+  .dots i{ width:8px; height:8px; }
+  .window__title{
+    font-size:clamp(9.5px,2.4vw,12px);
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    min-width:0;
+  }
+  /* Body vừa khít, KHÔNG cuộn */
+  .window__body{
+    padding:10px 10px 12px;
+    flex:0 1 auto;
+    overflow:hidden;
+  }
+
+  /* ── Room grid: stack dọc ── */
+  .room__grid,
+  .room__grid--reverse,
+  .room__grid--portrait-left{
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .room__media{ order:-1 !important; overflow:hidden; border-radius:8px; flex-shrink:0; }
+  /* Ảnh chính nhỏ hơn để nhường chỗ cho text + thumb */
+  .room__media img{ max-height:140px; object-fit:cover; width:100%; border-radius:0; }
+  .room__media--portrait img{ aspect-ratio:auto; max-height:130px; }
+
+  /* ── Text phòng ── */
+  .room__col{ gap:7px; }
+  .room__text p{
+    font-size:11.5px; text-align:left; color:#fff;
+    margin-bottom:6px; line-height:1.42;
+    /* Giới hạn 3 dòng mỗi đoạn tránh tràn */
+    display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  .room__text p:last-child{ margin-bottom:0; }
+
+  /* ── Thumbnail: lưới 2×2 ── */
+  .room__thumbs--grid,
+  .room__thumbs--row{
+    display:grid !important;
+    grid-template-columns:1fr 1fr;
+    gap:6px;
+    flex-shrink:0;
+  }
+  .room__thumbs--grid img,
+  .room__thumbs--row img{
+    width:100% !important;
+    height:auto !important;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    border-radius:8px;
+    flex:none;
+  }
+
+  /* ── Button pill ── */
+  .btn--pill{ font-size:13px; padding:9px 28px; white-space:nowrap; }
+  .room__cta{ margin-top:3px; text-align:center; flex-shrink:0; }
+
+  /* ── Guide: 100svh, KHÔNG cuộn ── */
+  .guide-page{
+    height:100svh; min-height:100svh;
+    overflow:hidden;
+    display:flex; flex-direction:column;
+  }
+  .guide{
+    flex:1; min-height:0;
+    overflow:hidden;
+    padding:16px 0 12px;
+    display:flex; flex-direction:column; justify-content:safe center;
+  }
+  .guide__lead{ font-size:12px; margin-bottom:14px; text-align:left; line-height:1.45; }
+  .guide__steps{ margin-bottom:16px; }
+  .guide__step{ flex-direction:row; align-items:flex-start; gap:10px; margin-bottom:12px; }
+  .guide__icon{ width:36px; flex:0 0 36px; }
+  .guide__step p{ font-size:12px; text-align:left; line-height:1.42; }
+  .btn--primary.btn--lg{ font-size:13.5px; padding:11px 26px; }
+
+  /* Footer ghim đáy */
+  .footer{ flex-shrink:0; padding:11px 0; }
+  .footer__inner{ grid-template-columns:1fr; gap:7px; text-align:center; }
+  .footer__logo{ margin:0 auto 2px; width:58px; }
+  .footer__col p{ font-size:10.5px; }
+  .footer__col a{ word-break:break-all; }
+
+  /* ── Museum topbar ── */
+  .museum__topbar{ padding:8px 11px; }
+  .museum__title{ font-size:11px; }
+  .museum__exit{ padding:5px 11px; font-size:12px; }
+  .museum__sound{ width:30px; height:30px; font-size:13px; }
+  .museum__hint{ font-size:10.5px; padding:8px 11px; gap:3px 9px; bottom:10px; }
+
+  /* ── Product panel 3D → bottom sheet ── */
+  .product-panel{
+    position:fixed; top:auto; bottom:0; left:0; right:0;
+    transform:none; width:100%;
+    max-height:68svh;
+    border-radius:16px 16px 0 0;
+    padding:14px 14px 22px;
+    box-shadow:0 -5px 24px rgba(0,0,0,.36);
+  }
+  .product-panel__close{ top:10px; right:12px; font-size:17px; }
+  .product-panel h3{ font-size:14.5px; }
+  .product-panel p{ font-size:12px; }
+}
+
+/* =====================================================================
+   RESPONSIVE – Very small ≤ 380px  (iPhone SE, Galaxy A series)
+   ===================================================================== */
+@media (max-width:380px){
+  .hero__title{ font-size:clamp(24px,8.5vw,34px); }
+  .hero__band span{ font-size:clamp(14px,5.8vw,22px); padding:2px 10px 5px; }
+  .hero__eyebrow{ font-size:11px; }
+  .window__title{ font-size:10px; }
+  .btn--pill{ font-size:13.5px; padding:11px 26px; }
+  .product-panel{ max-height:72vh; padding:14px 13px 22px; }
+}
