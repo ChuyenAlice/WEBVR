@@ -1,7 +1,7 @@
 {
   "sound": {
     "enabled": true,
-    "bgSrc": "",
+    "bgSrc": "assets/audio/bg_1782282857304.mp3",
     "bgVolume": 0.4,
     "popupSrc": "",
     "popupVolume": 0.7,
