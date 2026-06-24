@@ -29,10 +29,10 @@
   },
   "Image_Board_05_001": {
     "type": "image",
-    "src": "assets/exhibits/Image_Board_05_001_1782275985570.png",
-    "title": "Bảng hướng dẫn tham quan Bảo tàng số Khoa Đa phương tiện (Instructions for visiting the Digital Museum of the Faculty of Multimedia)",
-    "desc": "Để có trải nghiệm tối ưu nhất tại Sảnh chính và 03 Phòng trưng bày, vui lòng lưu ý các thao tác điều hướng cơ bản sau:\n\n\nDi chuyển: Sử dụng các phím mũi tên ↑↓←→ (hoặc cụm phím W A S D) trên bàn phím để di chuyển góc nhìn trong không gian; giữ thêm phím Shift để di chuyển nhanh. Hoặc click trực tiếp vào các điểm điều hướng trên sàn.\n\n\nTương tác sản phẩm: Khi tiến lại gần các khu vực trưng bày, click trực tiếp vào sản phẩm để mở bảng thông tin chi tiết, xem video gốc hoặc liên kết đến mã nguồn/ứng dụng.\n\n\nThiết bị khuyến nghị: Sử dụng máy tính (PC/Laptop) kết nối mạng tốc độ cao và tai nghe để trải nghiệm trọn vẹn không gian âm thanh - hình ảnh giả lập.",
-    "descEn": "Instructions for visiting the Digital Museum of the Faculty of Multimedia\n\nFor the most optimal experience in the Main Lobby and 03 Showrooms, please note the following basic navigation operations:\n\n\nMove: Use the arrow keys ↑↓←→ (or W A S D key cluster) on the keyboard to move the perspective in space; Hold down the Shift key to move quickly. Or click directly on the navigation points on the floor.\n\n\nProduct interaction: When approaching the display areas, click directly on the product to open a detailed information panel, watch the original video or link to the source code/application.\n\n\nRecommended equipment: Use a computer (PC/Laptop) with a high-speed network connection and headphones to fully experience the simulated audio-visual space."
+    "src": "assets/exhibits/Image_Board_05_001_1782280710779.png",
+    "title": "Công nghệ Đa phương tiện",
+    "desc": "",
+    "descEn": "Multimedia technology"
   },
   "Image_Board_06": {
     "type": "image",
@@ -50,17 +50,17 @@
   },
   "Image_Board_Top_01": {
     "type": "image",
-    "src": "",
+    "src": "assets/exhibits/Image_Board_Top_01_1782280994086.png",
     "title": "Thiết kế căn phòng game với phối cảnh 2 điểm tụ",
     "desc": "Thiết kế căn phòng game với phối cảnh 2 điểm tụ\nSinh viên: Nguyễn Quỳnh Hương\nGiảng viên hướng dẫn: Khuất Thị Thu Hà\"",
     "link": "https://drive.google.com/file/d/1FY69WMge6zzZGKZ_gPKDvNe56uixZB2P/view?usp=sharing"
   },
   "Image_Board_Top_01_001": {
     "type": "image",
-    "src": "",
-    "title": "",
-    "desc": "",
-    "link": ""
+    "src": "assets/exhibits/Image_Board_Top_01_001_1782280828989.png",
+    "title": "SẢN PHẨM \"Thiết kế căn phòng game với phối cảnh 2 điểm tụ\" (PRODUCT \"Game room design with 2-point perspective\")",
+    "desc": "Sản phẩm là bài thực hành thiết kế nội thất phòng game sử dụng phương pháp phối cảnh 2 điểm tụ nhằm thể hiện không gian một cách trực quan và chính xác. Bố cục được xây dựng dựa trên các nguyên tắc phối cảnh cơ bản, giúp tái hiện chiều sâu không gian, tỷ lệ vật thể và mối quan hệ giữa các yếu tố trong môi trường nội thất.\n\nThông qua việc vận dụng kỹ thuật phối cảnh 2 điểm tụ, sản phẩm không chỉ thể hiện khả năng quan sát và dựng hình không gian của sinh viên mà còn góp phần rèn luyện tư duy thiết kế và kỹ năng trình bày ý tưởng trong lĩnh vực mỹ thuật và thiết kế.\n\nSản phẩm được thực hiện bởi sinh viên:\nNguyễn Quỳnh Hương\n\nGiảng viên hướng dẫn: Khuất Thị Thu Hà",
+    "descEn": "Project Description:\n\nThis project is an interior design exercise featuring a gaming room created using the two-point perspective method to represent space accurately and visually. The composition is developed based on fundamental perspective principles, allowing for the effective depiction of spatial depth, object proportions, and the relationships between elements within the interior environment.\n\nThrough the application of two-point perspective techniques, the project demonstrates the student's ability to observe and construct spatial forms while also strengthening design thinking and visual presentation skills in the fields of art and design.\n\nThis project was created by a student.\n\nStudent Information:\nNguyễn Quỳnh Hương\n\nSupervisor: Khuất Thị Thu Hà"
   },
   "Image_Board_Top_02": {
     "type": "image",
