@@ -341,17 +341,18 @@
   },
   "Image_Board_Top_10": {
     "type": "video",
-    "src": "https://www.youtube.com/watch?v=bd75aHR-uBU",
-    "title": "Test",
-    "desc": "Test",
-    "link": "https://www.youtube.com/watch?v=bd75aHR-uBU"
-  },
-  "Image_Board_10": {
-    "type": "video",
     "src": "https://youtu.be/LXbbIoZaCKM",
-    "thumb": "assets/exhibits/Image_Board-10_thumb_1782279154539.png",
+    "thumb": "assets/exhibits/Image_Board_Top_10_thumb_1782279319747.png",
     "title": "SẢN PHẨM CUỘC THI OPEN DES 2024: Dự án: Game Puraria",
     "desc": "Dưới bối cảnh tầng ozone bị suy yếu nghiêm trọng, nhiều khu vực đã bị tàn phá nặng nề bởi ô nhiễm và khí độc, một nhà khoa học đã nhận sứ mệnh đặc biệt: đi tìm ra một thiết bị tân tiến có thể giải cứu thể giới đang mắc kẹt giữa một lãnh thổ ngập tràn rác thải phóng xạ và đầy rẫy những nguy hiểm.\n\nTrên hành trình đó, nhà khoa học thiên tài phải tìm cách khôi phục lại những vùng đất đã bị tàn phá bằng kỹ thuật và hiểu biết phong phú của bản thân; phát triển những công nghệ hiện đại để hỗ trợ anh trên con đường tìm ra giải pháp cho những mầm mống độc hại đang lan rộng khắp nơi trên thế giới.\n\nSản phẩm được thực hiện bởi nhóm sinh viên:\n1. Nguyễn Quỳnh Hương \n2. Lưu Minh Hiếu \n3. Hoàng Tiến Đạt \n4. Phùng Hải Yến \n5. Phạm Văn Trường\n6. Nguyễn Thái Dương \n7. Nguyễn Đình Nghĩa \n8. Ngô Anh Thư \n9. Hà Tuấn Khanh \n10. Lê Quốc Dũng \n11. Chu Tuyết Nhi \n12. Phạm Đình Trường \n13. Lê Thành Thông\n14. Nguyễn Hoàng Tùng \n15. Hà Mạnh Quân",
-    "descEn": "In the context of a seriously weakened ozone layer, many areas have been severely devastated by pollution and toxic gases, a scientist has accepted a special mission: to find an advanced device that can save the world trapped in a territory filled with radioactive waste and full of dangers.\n\nOn that journey, the genius scientist must find a way to restore the devastated lands using his own rich techniques and knowledge; developing modern technologies to support him on his path to finding solutions to the harmful germs that are spreading all over the world.\n\nProducts made by student groups:\n1. Nguyen Quynh Huong \n2. Luu Minh Hieu \n3. Hoang Tien Dat \n4. Phung Hai Yen \n5. Pham Van Truong\n6. Nguyen Thai Duong \n7. Nguyen Dinh Nghia \n8. Ngo Anh Thu \n9. Ha Tuan Khanh \n10. Le Quoc Dung \n11. Chu Tuyet Nhi \n12. Pham Dinh Truong \n13. Le Thanh Thong\n14. Nguyen Hoang Tung \n15. Ha Manh Quan"
+    "descEn": "In the context of a seriously weakened ozone layer, many areas have been severely devastated by pollution and toxic gases, a scientist has accepted a special mission: to find an advanced device that can save the world trapped in a territory filled with radioactive waste and full of dangers.\n\nOn that journey, the genius scientist must find a way to restore the devastated lands using his own rich techniques and knowledge; developing modern technologies to support him on his path to finding solutions to the harmful germs that are spreading all over the world.\n\nProducts made by student groups:\n1. Nguyen Quynh Huong \n2. Luu Minh Hieu \n3. Hoang Tien Dat \n4. Phung Hai Yen \n5. Pham Van Truong\n6. Nguyen Thai Duong \n7. Nguyen Dinh Nghia \n8. Ngo Anh Thu \n9. Ha Tuan Khanh \n10. Le Quoc Dung \n11. Chu Tuyet Nhi \n12. Pham Dinh Truong \n13. Le Thanh Thong\n14. Nguyen Hoang Tung \n15. Ha Manh Quan",
+    "link": "https://www.youtube.com/watch?v=bd75aHR-uBU"
+  },
+  "Image_Board_02": {
+    "type": "image",
+    "src": "assets/exhibits/Image_Board_02_1782279408789.png",
+    "title": "Bảng hướng dẫn tham quan Bảo tàng số Khoa Đa phương tiện PTIT",
+    "desc": "Để có trải nghiệm tối ưu nhất tại Sảnh chính và 03 Phòng trưng bày, vui lòng lưu ý các thao tác điều hướng cơ bản sau:\n\n\nDi chuyển: Sử dụng các phím mũi tên ↑↓←→ (hoặc cụm phím W A S D) trên bàn phím để di chuyển góc nhìn trong không gian; giữ thêm phím Shift để di chuyển nhanh. Hoặc click trực tiếp vào các điểm điều hướng trên sàn.\n\n\nTương tác sản phẩm: Khi tiến lại gần các khu vực trưng bày, click trực tiếp vào sản phẩm để mở bảng thông tin chi tiết, xem video gốc hoặc liên kết đến mã nguồn/ứng dụng.\n\n\nThiết bị khuyến nghị: Sử dụng máy tính (PC/Laptop) kết nối mạng tốc độ cao và tai nghe để trải nghiệm trọn vẹn không gian âm thanh - hình ảnh giả lập.",
+    "descEn": "For the most optimal experience in the Main Lobby and 03 Showrooms, please note the following basic navigation operations:\n\nMove: Use the arrow keys ↑↓←→ (or W A S D key cluster) on the keyboard to move the perspective in space; Hold down the Shift key to move quickly. Or click directly on the navigation points on the floor.\n\n\nProduct interaction: When approaching the display areas, click directly on the product to open a detailed information panel, watch the original video or link to the source code/application.\n\nRecommended equipment: Use a computer (PC/Laptop) with a high-speed network connection and headphones to fully experience the simulated audio-visual space."
   }
 }
