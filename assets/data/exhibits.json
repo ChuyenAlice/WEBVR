@@ -77,10 +77,10 @@
   },
   "Image_Board_Top_04_001": {
     "type": "image",
-    "src": "",
-    "title": "",
-    "desc": "",
-    "link": ""
+    "src": "assets/exhibits/Image_Board_Top_04_001_1782279603884.png",
+    "title": "ĐỒ ÁN TỐT NGHIỆP \"NGỰ KỲ\"",
+    "desc": "Đề tài nghiên cứu tập trung khai thác tính dân tộc trong nghệ thuật tạo hình thời Nguyễn, từ đó phân tích các giá trị thẩm mỹ, đặc trưng nghệ thuật và ảnh hưởng của yếu tố văn hoá trong thiết kế đương đại. Nghiên cứu góp phần làm rõ vai trò của nghệ thuật truyền thống trong lĩnh vực mỹ thuật, thiết kế đồ hoạ và thiết kế sản phẩm, đồng thời tạo nền tảng cho các hướng nghiên cứu tiếp theo về ứng dụng văn hoá dân tộc trong sáng tạo hiện đại.\n\nTrên cơ sở kết quả nghiên cứu, nhóm đã phát triển sản phẩm cờ vua văn hoá mang tên “Ngự Kỳ”, lấy cảm hứng từ di sản nghệ thuật thời Nguyễn. Sản phẩm hướng đến việc bảo tồn và phát huy các giá trị văn hoá truyền thống thông qua thiết kế sáng tạo, đồng thời góp phần quảng bá văn hoá Việt Nam đến công chúng trong nước và quốc tế, đặc biệt trong các lĩnh vực văn hoá và du lịch.\n\nSản phẩm được thực hiện bởi nhóm sinh viên.\n\nThông tin sinh viên:\n\n Phùng Văn Tuấn – B21DCPT227\n Nguyễn Thị Thu Trang – B21DCPT221\n Ngô Thảo Nguyên – B21DCPT171\n\nGiảng viên hướng dẫn: Th.S. Hà Thị Huệ",
+    "descEn": "This research project explores the national identity embedded in the visual arts of the Nguyen Dynasty, examining its artistic characteristics, aesthetic values, and cultural influences within contemporary design practices. The study contributes to the fields of fine arts, graphic design, and cultural studies by highlighting the significance of traditional artistic heritage and providing a theoretical foundation for future research on the application of cultural elements in modern creative products.\n\nBased on the research findings, the team developed \"Ngự Kỳ\", a culturally inspired chess set that reinterprets Nguyen Dynasty artistic heritage through contemporary product design. The project aims to preserve and promote traditional cultural values while providing a reference for the integration of Vietnamese cultural elements into creative design. Furthermore, \"\"Ngự Kỳ\"\" has the potential to introduce and promote Vietnamese culture to both domestic and international audiences, particularly within the fields of culture and tourism.\n\nThis project was created by a group of students.\n\nStudent Information:\n\n Phùng Văn Tuấn – B21DCPT227\n Nguyễn Thị Thu Trang – B21DCPT221\n Ngô Thảo Nguyên – B21DCPT171\nSupervisor: Ms. Hà Thị Huệ"
   },
   "Image_Board_Top_05": {
     "type": "image",
@@ -122,11 +122,10 @@
   "Image_Board_Top_12": {
     "type": "video",
     "src": "https://youtu.be/DmNbCCB0EBA",
-    "thumb": "assets/exhibits/Image_Board_Top_12_thumb_1782278639078.png",
+    "thumb": "assets/exhibits/Image_Board_Top_12_thumb_1782280311134.png",
     "title": "Fooday",
     "desc": "Tác phẩm là giao diện ứng dụng di động \"Fooday\" – một giải pháp công nghệ thông minh nhằm giải quyết triệt để câu hỏi quốc dân “Hôm nay ăn gì?” của người trưởng thành, đồng thời hỗ trợ theo dõi và cân bằng lượng dinh dưỡng nạp vào cơ thể hàng ngày.\n\nMôn học: Báo cáo tổng kết Thực tập chuyên sâu\nGiảng viên hướng dẫn: TS. Phí Công Huy & ThS. Nguyễn Thị Tuyết Mai\nNhóm sinh viên:\nĐẶNG NGỌC ÁNH / B21DCPT055\nNGUYỄN THỊ KIM CHI / B21DCPT063\nPHÙNG TIẾN ĐẠT  / B21DCPT073\nNGUYỄN HUY HOÀNG / B21DCPT120\nNGUYỄN THÀNH THÁI / B21DCPT202",
-    "descEn": "The work is the mobile application interface \"Fooday\" - a smart technology solution to thoroughly solve the national question \"What to eat today?\" of adults, while also supporting monitoring and balancing daily nutritional intake.\n\nSubject: Intensive internship summary report\nInstructor: Dr. Phi Cong Huy & MSc. Nguyen Thi Tuyet Mai\nStudent group:\nDANG NGOC ANH / B21DCPT055\nNGUYEN THI KIM CHI / B21DCPT063\nPHUNG TIEN DAT / B21DCPT073\nNGUYEN HUY HOANG / B21DCPT120\nNGUYEN THANH THAI / B21DCPT202",
-    "link": "https://drive.google.com/file/d/1FHN6kYCopJvVcnWJ25JHdaOKluwj3tfq/view?usp=drive_link"
+    "descEn": "The work is the mobile application interface \"Fooday\" - a smart technology solution to thoroughly solve the national question \"What to eat today?\" of adults, while also supporting monitoring and balancing daily nutritional intake.\n\nSubject: Intensive internship summary report\nInstructor: Dr. Phi Cong Huy & MSc. Nguyen Thi Tuyet Mai\nStudent group:\nDANG NGOC ANH / B21DCPT055\nNGUYEN THI KIM CHI / B21DCPT063\nPHUNG TIEN DAT / B21DCPT073\nNGUYEN HUY HOANG / B21DCPT120\nNGUYEN THANH THAI / B21DCPT202"
   },
   "Image_Board_Top_13": {
     "type": "video",
@@ -137,11 +136,11 @@
     "descEn": "The Motion Typography project is based on the song \"Khế Ước\" (Pinky promise), exploring feelings of pain, emotional conflict, and heartbreak within a relationship that has reached its end. Typography is used as the main storytelling element, combined with motion, text deformation, and spatial composition to visually express the emotional state and psychological progression of the characters in the song.\n\nRed is chosen as the primary color, symbolizing love, pain, and emotional wounds. Throughout the video, the red tone gradually transitions into darker shades and black, reflecting mental breakdown, despair, and emotional emptiness. Effects such as stretching, fragmentation, distortion, and text splitting are applied to emphasize emotional collapse, loss of trust, and suppressed feelings.\n\nThis project was created by a student.\n\nStudent Information:\nLê Hương Giang – B22DCPT064\nĐặng Thị Mỹ Tâm – B22DCPT235\n\nSupervisor: Th.S. Hà Thị Hồng Ngân"
   },
   "Image_Board_Top_14": {
-    "type": "image",
+    "type": "video",
     "src": "",
+    "thumb": "assets/exhibits/Image_Board_Top_14_thumb_1782279654356.png",
     "title": "",
-    "desc": "",
-    "link": ""
+    "desc": ""
   },
   "Image_Board_Top_15": {
     "type": "image",
@@ -331,13 +330,6 @@
     "title": "",
     "desc": "",
     "link": ""
-  },
-  "image_Board_02": {
-    "type": "image",
-    "src": "assets/exhibits/image_Board_02_1782187402616.png",
-    "title": "Bảng hướng dẫn tham quan Bảo tàng số Khoa Đa phương tiện",
-    "desc": "Để có trải nghiệm tối ưu nhất tại Sảnh chính và 03 Phòng trưng bày, vui lòng lưu ý các thao tác điều hướng cơ bản sau:\n\n\nDi chuyển: Sử dụng các phím mũi tên ↑↓←→ (hoặc cụm phím W A S D) trên bàn phím để di chuyển góc nhìn trong không gian; giữ thêm phím Shift để di chuyển nhanh. Hoặc click trực tiếp vào các điểm điều hướng trên sàn.\n\n\nTương tác sản phẩm: Khi tiến lại gần các khu vực trưng bày, click trực tiếp vào sản phẩm để mở bảng thông tin chi tiết, xem video gốc hoặc liên kết đến mã nguồn/ứng dụng.\n\n\nThiết bị khuyến nghị: Sử dụng máy tính (PC/Laptop) kết nối mạng tốc độ cao và tai nghe để trải nghiệm trọn vẹn không gian âm thanh - hình ảnh giả lập.",
-    "descEn": "Instructions for visiting the Digital Museum of the Faculty of Multimedia\n\nFor the most optimal experience in the Main Lobby and 03 Showrooms, please note the following basic navigation operations:\n\n\nMove: Use the arrow keys ↑↓←→ (or W A S D key cluster) on the keyboard to move the perspective in space; Hold down the Shift key to move quickly. Or click directly on the navigation points on the floor.\n\n\nProduct interaction: When approaching the display areas, click directly on the product to open a detailed information panel, watch the original video or link to the source code/application.\n\n\nRecommended equipment: Use a computer (PC/Laptop) with a high-speed network connection and headphones to fully experience the simulated audio-visual space."
   },
   "Image_Board_Top_10": {
     "type": "video",
