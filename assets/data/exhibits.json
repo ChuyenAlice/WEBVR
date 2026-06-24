@@ -29,10 +29,10 @@
   },
   "Image_Board_05_001": {
     "type": "image",
-    "src": "",
-    "title": "",
-    "desc": "",
-    "link": ""
+    "src": "assets/exhibits/Image_Board_05_001_1782275985570.png",
+    "title": "Bảng hướng dẫn tham quan Bảo tàng số Khoa Đa phương tiện (Instructions for visiting the Digital Museum of the Faculty of Multimedia)",
+    "desc": "Để có trải nghiệm tối ưu nhất tại Sảnh chính và 03 Phòng trưng bày, vui lòng lưu ý các thao tác điều hướng cơ bản sau:\n\n\nDi chuyển: Sử dụng các phím mũi tên ↑↓←→ (hoặc cụm phím W A S D) trên bàn phím để di chuyển góc nhìn trong không gian; giữ thêm phím Shift để di chuyển nhanh. Hoặc click trực tiếp vào các điểm điều hướng trên sàn.\n\n\nTương tác sản phẩm: Khi tiến lại gần các khu vực trưng bày, click trực tiếp vào sản phẩm để mở bảng thông tin chi tiết, xem video gốc hoặc liên kết đến mã nguồn/ứng dụng.\n\n\nThiết bị khuyến nghị: Sử dụng máy tính (PC/Laptop) kết nối mạng tốc độ cao và tai nghe để trải nghiệm trọn vẹn không gian âm thanh - hình ảnh giả lập.",
+    "descEn": "Instructions for visiting the Digital Museum of the Faculty of Multimedia\n\nFor the most optimal experience in the Main Lobby and 03 Showrooms, please note the following basic navigation operations:\n\n\nMove: Use the arrow keys ↑↓←→ (or W A S D key cluster) on the keyboard to move the perspective in space; Hold down the Shift key to move quickly. Or click directly on the navigation points on the floor.\n\n\nProduct interaction: When approaching the display areas, click directly on the product to open a detailed information panel, watch the original video or link to the source code/application.\n\n\nRecommended equipment: Use a computer (PC/Laptop) with a high-speed network connection and headphones to fully experience the simulated audio-visual space."
   },
   "Image_Board_06": {
     "type": "image",
@@ -332,9 +332,9 @@
   "image_Board_02": {
     "type": "image",
     "src": "assets/exhibits/image_Board_02_1782187402616.png",
-    "title": "Bảng chỉ dẫn tham quan Bảo tàng số Khoa Đa phương tiện",
-    "desc": "",
-    "link": ""
+    "title": "Bảng hướng dẫn tham quan Bảo tàng số Khoa Đa phương tiện",
+    "desc": "Để có trải nghiệm tối ưu nhất tại Sảnh chính và 03 Phòng trưng bày, vui lòng lưu ý các thao tác điều hướng cơ bản sau:\n\n\nDi chuyển: Sử dụng các phím mũi tên ↑↓←→ (hoặc cụm phím W A S D) trên bàn phím để di chuyển góc nhìn trong không gian; giữ thêm phím Shift để di chuyển nhanh. Hoặc click trực tiếp vào các điểm điều hướng trên sàn.\n\n\nTương tác sản phẩm: Khi tiến lại gần các khu vực trưng bày, click trực tiếp vào sản phẩm để mở bảng thông tin chi tiết, xem video gốc hoặc liên kết đến mã nguồn/ứng dụng.\n\n\nThiết bị khuyến nghị: Sử dụng máy tính (PC/Laptop) kết nối mạng tốc độ cao và tai nghe để trải nghiệm trọn vẹn không gian âm thanh - hình ảnh giả lập.",
+    "descEn": "Instructions for visiting the Digital Museum of the Faculty of Multimedia\n\nFor the most optimal experience in the Main Lobby and 03 Showrooms, please note the following basic navigation operations:\n\n\nMove: Use the arrow keys ↑↓←→ (or W A S D key cluster) on the keyboard to move the perspective in space; Hold down the Shift key to move quickly. Or click directly on the navigation points on the floor.\n\n\nProduct interaction: When approaching the display areas, click directly on the product to open a detailed information panel, watch the original video or link to the source code/application.\n\n\nRecommended equipment: Use a computer (PC/Laptop) with a high-speed network connection and headphones to fully experience the simulated audio-visual space."
   },
   "Image_Board_Top_10": {
     "type": "video",
